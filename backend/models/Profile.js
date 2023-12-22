@@ -12,6 +12,6 @@ const ProfileSchema = new mongoose.Schema({
     faceBook_link: {type: String, required: false},
 });
 
-const UserInfo = mongoose.model('UserInfo', ProfileSchema);
+const User = mongoose.model('User', ProfileSchema);
 
-module.exports = UserInfo;
+module.exports = User;
