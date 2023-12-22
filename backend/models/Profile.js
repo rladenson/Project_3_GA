@@ -5,10 +5,11 @@ const ProfileSchema = new mongoose.Schema({
     name: {type: String, required: true},
     description: {type: String, required: false},
     bio: {type: String, required: false},
-    social_link1: {type: String, required: false},
-    social_link2: {type: String, required: false},
-    social_link3: {type: String, required: false},
-    social_link4: {type: String, required: false},
+    gitHub_link: {type: String, required: false},
+    linkedIn_link: {type: String, required: false},
+    stackOverFlow_link: {type: String, required: false},
+    twitter_link: {type: String, required: false},
+    faceBook_link: {type: String, required: false},
 });
 
 const UserInfo = mongoose.model('UserInfo', ProfileSchema);
