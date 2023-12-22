@@ -12,5 +12,5 @@ mongoose.connection
     .on("error", (error) => console.log(error));
 
 module.exports = {
-    
+    // TODO MODELS GO HERE
 }
