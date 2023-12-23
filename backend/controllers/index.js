@@ -1,4 +1,5 @@
 module.exports = {
     userCtrl: require("./userCtrls"),
-    projectCtrl: require("./projectCtrls")
+    projectCtrl: require("./projectCtrls"),
+    sessionCtrl: require("./sessionCtrls")
 }
