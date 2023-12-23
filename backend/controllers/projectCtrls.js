@@ -1,5 +1,7 @@
 const db = require("../models");
 
-module.exports = {
+// TODO ROUTE FUNCTIONS (NOT ACTIONS) GO HERE
 
+module.exports = {
+    // TODO ROUTE NAMES GO HERE
 };
