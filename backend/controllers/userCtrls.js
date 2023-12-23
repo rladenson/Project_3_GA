@@ -27,7 +27,7 @@ const updateUser = (req, res) => {
             bcrypt.genSaltSync(10)
         );
     }
-    db.User.findOneAndUpdate({username: req.params.username}, req.body, { new: true }).then((updatedUser) => {
+    db.User.findByIdAndUpdate(req.session.currentUser._id, req.body, { new: true }).then((updatedUser) => {
         if (!updatedUser) {
             res.status(400).json({ message: "Could not update profile." });
         } else {
@@ -37,7 +37,7 @@ const updateUser = (req, res) => {
 };
 
 const deleteUser = (req, res) => {
-    db.User.findOneAndDelete({username: req.params.username}).then((deletedUser) => {
+    db.User.findByIdAndDelete(req.session.currentUser._id, (deletedUser) => {
         if (!deletedUser) {
             res.status(400).json({ message: "Could not delete user account." });
         } else {
