@@ -54,3 +54,8 @@ section {
   padding-bottom: 10px;
 }
 
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover; /* This property ensures the image covers the entire container while maintaining aspect ratio */
+}
