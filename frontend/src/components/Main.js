@@ -3,6 +3,7 @@ import { Route, Routes} from "react-router-dom"
 import Home from "../pages/Home"
 import Index from "../pages/Index"
 import ShowProfile from "../pages/ShowProfile"
+import ShowProject from "../pages/ShowProject"
 
 //Mock data
 const mockProfileData = {
@@ -40,6 +41,7 @@ function Main() {
         <main>
             <Routes>
                 <Route path="/profile" element={<ShowProfile profile={mockProfileData}/>}/>
+                <Route path="/projects/id" element={<ShowProject profile={mockProfileData}/>}/>
             </Routes>
         </main>
     )

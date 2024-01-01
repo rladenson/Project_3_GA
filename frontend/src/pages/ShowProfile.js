@@ -5,8 +5,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/CardGroup";
-import { Link } from "react-router-dom";
+
 
 const profileData = [
   {
@@ -132,7 +131,7 @@ function ShowProfile(props) {
           </a>
         </div>
       </Row>
-      <div className="album mt-3 py-5 bg-body-tertiary">
+      <div className="mt-3 py-5 bg-body-tertiary">
         <Row xs={1} md={3} className="g-3 mx-auto">
           {projectData.map((project) => (
             <Col key={project.id}>

@@ -48,4 +48,9 @@ section {
   margin: 0.5em;
 }
 
+.profile-sideview {
+  background-color: #edeaef;
+  border-radius: 30px;
+  padding-bottom: 10px;
+}
 
