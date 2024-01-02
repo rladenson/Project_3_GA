@@ -5,6 +5,8 @@ import Index from "../pages/Index"
 import ShowProfile from "../pages/ShowProfile"
 import ShowProject from "../pages/ShowProject"
 import NewProfile from "../pages/NewProfile"
+import SignUp from "../pages/SignUp"
+import LogIn from "../pages/LogIn"
 
 //Mock data
 const mockProfileData = {
@@ -44,6 +46,8 @@ function Main() {
                 <Route path="/profile" element={<ShowProfile profile={mockProfileData}/>}/>
                 <Route path="/projects/id" element={<ShowProject profile={mockProfileData}/>}/>
                 <Route path="/profile/new" element={<NewProfile profile={mockProfileData}/>}/>
+                <Route path="/signup" element={<SignUp profile={mockProfileData}/>}/>
+                <Route path="/login" element={<LogIn profile={mockProfileData}/>}/>
             </Routes>
         </main>
     )
