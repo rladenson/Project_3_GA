@@ -13,6 +13,7 @@ mongoose.connection
 
 module.exports = {
     // TODO MODELS GO HERE
-    User: require("./User"),
-    Project: require("./Project"),
+    User: require('./User'),
+    Project: require('./Project')
 };
+
