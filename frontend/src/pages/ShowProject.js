@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import Carousel from "react-bootstrap/Carousel";
 
 const profileData = [
   {
@@ -16,11 +17,22 @@ const profileData = [
     title: "Full Stack Software Developer",
   },
 ];
+const allProjects = [
+  {
+    id: 1,
+    user: "X",
+    img: [
+      "https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?q=80&w=2816&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1566241477600-ac026ad43874?q=80&w=2892&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1528588641076-3fe42e01df36?q=80&w=2896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
+  },
+];
 
 function ShowProject(props) {
   return (
     <Container className="mb-4">
-      <Row style={{ marginTop: "8em" }}>
+      <Row className="d-flex justify-content-center" style={{ marginTop: "8em" }}>
         <Col md={4}>
           <div className="profile-sideview">
             <Image
@@ -72,10 +84,30 @@ function ShowProject(props) {
         </Col>
         <Col md={6}>
           <Card className="shadow-sm h-100">
-            <Card.Img
+            {/* <Card.Img
               variant="top img-fit"
               src="https://images.unsplash.com/photo-1685478237496-d4e545f1e317?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
+            /> */}
+
+            <Carousel>
+              {allProjects.map((project) =>
+                project.img.map((imgURL, index) => (
+                  <Carousel.Item key={index}>
+                    <Image src={imgURL} style={{ width: '100%', height: '300px', objectFit: 'cover' }}/>
+                    <Carousel.Caption>
+                      <h3>
+                        Project {project.id} - Image {index + 1}
+                      </h3>
+                      <p>
+                        Nulla vitae elit libero, a pharetra augue mollis
+                        interdum.
+                      </p>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                ))
+              )}
+            </Carousel>
+
             <Card.Body className="text-start">
               <Card.Title className="d-md-flex justify-content-between">
                 <div>Project Name</div>
