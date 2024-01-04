@@ -106,16 +106,19 @@ function Main(props) {
 
   //CREATE PROJECT FUNCTION
   const createUser = async (us) => {
+    const object = {};
+    us.forEach((value, key) => object[key] = value);
+    const json = JSON.stringify(object);
     // make a post request to create project
-    await fetch(URL2, {
-      method: "post",
+    console.log(await fetch(URL2, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(us),
-    });
+      body: json,
+    }));
     // update the list of projects
-    getUser();
+    //getUser();
   };
 
   // UPDATE PROJECT
@@ -143,13 +146,13 @@ function Main(props) {
   };
 
   useEffect(() => {
-    getUser();
+    //getUser();
   }, []);
 
   return (
     <main>
       <Routes>
-        <Route path="/login" element={<LogIn profile={mockProfileData} />} />
+        {/*<Route path="/login" element={<LogIn profile={mockProfileData} />} />*/}
         <Route path="/" element={<Index project={project} />} />
         <Route
           path="/project/new"
@@ -182,7 +185,7 @@ function Main(props) {
 
         {/* <Route path="/profile" element={<ShowProfile profile={mockProfileData}/>}/> */}
         {/* <Route path="/projects/id" element={<ShowProject profile={mockProfileData}/>}/> */}
-        {/* <Route path="/profile/new" element={<NewProfile profile={mockProfileData}/>}/> */}
+        <Route path="/profile/new" element={<NewProfile createUser={createUser}/>}/>
         {/* <Route path="/signup" element={<SignUp profile={mockProfileData}/>}/> */}
         {/* <Route path="/login" element={<LogIn profile={mockProfileData}/>}/> */}
         {/* <Route path="/projects/new" element={<NewProject profile={mockProfileData}/>}/> */}

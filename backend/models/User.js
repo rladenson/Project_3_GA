@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ProfileSchema = new mongoose.Schema({
-    imgUser: { type: String, required: true },
+    img: { type: String, required: true },
     name: { type: String, required: true },
     description: { type: String, required: false },
     bio: { type: String, required: false },
@@ -12,6 +12,7 @@ const ProfileSchema = new mongoose.Schema({
     faceBook_link: { type: String, required: false },
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    jobtitle: { type: String }
 });
 
 const User = mongoose.model("User", ProfileSchema);
