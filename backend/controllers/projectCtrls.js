@@ -1,17 +1,27 @@
 const db = require("../models");
 
 // TODO ROUTE FUNCTIONS (NOT ACTIONS) GO HERE
-const getProject = (req, res) => {
+const getProjects = (req, res) => {
     db.Project.find({})
-    .then((foundProject) => {
-        if(!foundProject) {
-            res.status(404).json({message: "Cannont find project."})
+    .then((foundProjects) => {
+        if(!foundProjects) {
+            res.status(404).json({message: "Cannot find projects."})
         } else {
-            res.status(200).json({data: foundProject})
+            res.status(200).json({data: foundProjects})
         }
     });
 };
 
+const getProject = (req, res) => {
+    db.Project.findById(req.params.id)
+    .then((foundProject) => {
+        if(!foundProject) {
+            res.status(404).json({message: "Cannot find project."})
+        } else {
+            res.status(200).json({data: foundProject})
+        }
+    })
+}
 
 const createProject = (req, res) => {
 req.body.user = req.session.currentUser
@@ -60,6 +70,7 @@ const deleteProject = async (req, res) => {
 
 module.exports = {
     // TODO ROUTE NAMES GO HERE
+    getProjects,
     getProject,
     createProject,
     updateProject,

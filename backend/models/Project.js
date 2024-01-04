@@ -9,7 +9,6 @@ const ProjectSchema = new mongoose.Schema({
     techused: {type: [String], required: true},
     description: {type: String, required: false},
     tags: {type: [String], required: true},
-    authorname: {type: String, required: true},
 
 });
 
