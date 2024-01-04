@@ -18,18 +18,20 @@ const getUser = async (req, res) => {
 };
 
 const createUser = (req, res) => {
+    console.log(req.body);
     req.body.password = bcrypt.hashSync(
         req.body.password,
         bcrypt.genSaltSync(10)
     );
     db.User.create(req.body, (err, createdUser) => {
         if (err) {
-            res.send(500, err);
+            console.log("error", err)
+            res.status(500).send(err);
         } else if (!createdUser) {
-            res.send(400);
+            res.status(400);
         } else {
             console.log("user is created", createdUser);
-            res.send(200, createUser);
+            res.status(200).send(createUser);
         }
     });
 };

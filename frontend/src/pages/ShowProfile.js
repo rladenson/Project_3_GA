@@ -168,101 +168,102 @@ import Banner from "../components/Banner";
 // }
 
 function ShowProfile(props) {
+  return <></>
  
-  return (
-    <>
-    <Banner/>
-    <Container className="main main-raised">
-      <Row>
-          <Col key={specificUser.id} md={6} className="ms-auto me-auto">
-            <div className="text-center">
-              <Image
-                className="img-raised profile-img"
-                src={specificUser.img}
-                roundedCircle
-              />
-              <div style={{ marginTop: "-60px" }}>
-                <h3 className="title">{specificUser.name}</h3>
-                <h6>{specificUser.jobtitle}</h6>
-                <p className="mb-4">
-                  <Button
-                    variant="primary"
-                    size="sm"
-                    className="px-5"
-                    style={{ borderRadius: "15px" }}
-                  >
-                    {specificUser.id === userCtrl.id ? "" : "Follow"}
-                  </Button>
-                </p>
-              </div>
-            </div>
-          </Col>
+  // return (
+  //   <>
+  //   <Banner/>
+  //   <Container className="main main-raised">
+  //     <Row>
+  //         <Col key={specificUser.id} md={6} className="ms-auto me-auto">
+  //           <div className="text-center">
+  //             <Image
+  //               className="img-raised profile-img"
+  //               src={specificUser.img}
+  //               roundedCircle
+  //             />
+  //             <div style={{ marginTop: "-60px" }}>
+  //               <h3 className="title">{specificUser.name}</h3>
+  //               <h6>{specificUser.jobtitle}</h6>
+  //               <p className="mb-4">
+  //                 <Button
+  //                   variant="primary"
+  //                   size="sm"
+  //                   className="px-5"
+  //                   style={{ borderRadius: "15px" }}
+  //                 >
+  //                   {specificUser.id === userCtrl.id ? "" : "Follow"}
+  //                 </Button>
+  //               </p>
+  //             </div>
+  //           </div>
+  //         </Col>
       
-      </Row>
-      <Row className="ms-auto me-auto" style={{ maxWidth: "600px" }}>
-        <Col md={4}>
-          <small>Projects</small>
-          <h4 className="font-light">{specificUser.projects}</h4>
-        </Col>
-        <Col md={4}>
-          <small>Followers</small>
-          <h4 className="font-light">{specificUser.followers}</h4>
-        </Col>
-        <Col md={4}>
-          <small>Following</small>
-          <h4 className="font-light">{specificUser.following}</h4>
-        </Col>
-      </Row>
-      <Row className="description ms-auto me-auto">
-        <div>
-          <hr />
-          <p>
-            {specificUser.about}
-          </p>
-          <a href={specificUser.github} className="icon">
-            <i className="bi bi-github" style={{ color: "#333333" }}></i>
-          </a>
-          <a href={specificUser.linkedin}className="icon">
-            <i className="bi bi-linkedin" style={{ color: "#0082CA" }}></i>
-          </a>
-          <a href={specificUser.stack} className="icon">
-            <i
-              className="bi bi-stack-overflow"
-              style={{ color: "#FFAC44" }}
-            ></i>
-          </a>
-          <a href={specificUser.twitter} className="icon">
-            <i className="bi bi-twitter" style={{ color: "#55ACEE" }}></i>
-          </a>
-        </div>
-      </Row>
-      <div className="mt-3 py-5 bg-body-tertiary">
-        <Row xs={1} md={3} className="g-3 mx-auto">
-          {specificUser.projects.map((project) => (
-            <Col key={project.id}>
-              <Card className="shadow-sm h-100">
-                <Card.Img variant="top img-fit" src={project.image} />
-                <Card.Body className="text-start">
-                  <Card.Title>{project.title}</Card.Title>
-                  <Card.Text>{project.description}</Card.Text>
-                  <div className="text-end">
-                    <a
-                      href={`/projects/${project.id}`}
-                      className="btn btn-outline-primary"
-                    >
-                      {" "}
-                      View Details{" "}
-                    </a>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </div>
-    </Container>
-    </>
-  );
+  //     </Row>
+  //     <Row className="ms-auto me-auto" style={{ maxWidth: "600px" }}>
+  //       <Col md={4}>
+  //         <small>Projects</small>
+  //         <h4 className="font-light">{specificUser.projects}</h4>
+  //       </Col>
+  //       <Col md={4}>
+  //         <small>Followers</small>
+  //         <h4 className="font-light">{specificUser.followers}</h4>
+  //       </Col>
+  //       <Col md={4}>
+  //         <small>Following</small>
+  //         <h4 className="font-light">{specificUser.following}</h4>
+  //       </Col>
+  //     </Row>
+  //     <Row className="description ms-auto me-auto">
+  //       <div>
+  //         <hr />
+  //         <p>
+  //           {specificUser.about}
+  //         </p>
+  //         <a href={specificUser.github} className="icon">
+  //           <i className="bi bi-github" style={{ color: "#333333" }}></i>
+  //         </a>
+  //         <a href={specificUser.linkedin}className="icon">
+  //           <i className="bi bi-linkedin" style={{ color: "#0082CA" }}></i>
+  //         </a>
+  //         <a href={specificUser.stack} className="icon">
+  //           <i
+  //             className="bi bi-stack-overflow"
+  //             style={{ color: "#FFAC44" }}
+  //           ></i>
+  //         </a>
+  //         <a href={specificUser.twitter} className="icon">
+  //           <i className="bi bi-twitter" style={{ color: "#55ACEE" }}></i>
+  //         </a>
+  //       </div>
+  //     </Row>
+  //     <div className="mt-3 py-5 bg-body-tertiary">
+  //       <Row xs={1} md={3} className="g-3 mx-auto">
+  //         {specificUser.projects.map((project) => (
+  //           <Col key={project.id}>
+  //             <Card className="shadow-sm h-100">
+  //               <Card.Img variant="top img-fit" src={project.image} />
+  //               <Card.Body className="text-start">
+  //                 <Card.Title>{project.title}</Card.Title>
+  //                 <Card.Text>{project.description}</Card.Text>
+  //                 <div className="text-end">
+  //                   <a
+  //                     href={`/projects/${project.id}`}
+  //                     className="btn btn-outline-primary"
+  //                   >
+  //                     {" "}
+  //                     View Details{" "}
+  //                   </a>
+  //                 </div>
+  //               </Card.Body>
+  //             </Card>
+  //           </Col>
+  //         ))}
+  //       </Row>
+  //     </div>
+  //   </Container>
+  //   </>
+  // );
 }
 
 export default ShowProfile;
