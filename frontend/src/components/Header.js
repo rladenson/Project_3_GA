@@ -22,13 +22,9 @@ function Header() {
             <Nav.Link href="#action1">Home</Nav.Link>
             <Nav.Link href="#action2">Projects</Nav.Link>
             <NavDropdown title="Profile" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Settings</NavDropdown.Item>
+              <NavDropdown.Item href="#action3">View Profile</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
+                Edit Profile
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
@@ -48,14 +44,6 @@ function Header() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    <section className="py-5 text-center m-0">
-        <div className="row py-lg-5">
-          <div className="col-lg-6 col-md-8 mx-auto">
-            <h1 className="fw-light text-white-50">devPort</h1>
-            <p className="lead text-white-50">Discover, Connect, Collaborate</p>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
