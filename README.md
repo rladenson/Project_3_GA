@@ -43,10 +43,10 @@ BACK END
 
 ## Design
 * Wireframe images
-<img src="SocDevWireframes/SocDev1.png">
-<img src="SocDevWireframes/SocDev2.png">
-<img src="SocDevWireframes/SocDev3.png">
-<img src="SocDevWireframes/SocDev4.png">
+<img src="[SocDevWireframes/SocDev1.png](https://res.cloudinary.com/dzbkpvk1h/image/upload/v1704423705/SocDev1_un2ng9.png)">
+<img src="[SocDevWireframes/SocDev2.png](https://res.cloudinary.com/dzbkpvk1h/image/upload/v1704423727/SocDev2_vgh26l.png)">
+<img src="[SocDevWireframes/SocDev3.png](https://res.cloudinary.com/dzbkpvk1h/image/upload/v1704423727/SocDev3_e2ims6.png)">
+<img src="[SocDevWireframes/SocDev4.png](https://res.cloudinary.com/dzbkpvk1h/image/upload/v1704423728/SocDev4_ph5uho.png)">
 
 ## Next Steps
 * The ability to reach out and connect with other users
