@@ -1,6 +1,6 @@
-# Frontend
+# devPort
 
-The SocDev - The Social Developer
+devPort - Developer Port
 A full CRUD app designed to provide community and a showplace for software developers
 
 
