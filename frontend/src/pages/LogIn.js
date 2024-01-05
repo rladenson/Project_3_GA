@@ -6,18 +6,33 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
 
-function LogIn() {
+function LogIn(props) {
   const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+    console.log(form.checkValidity())
+    if (form.checkValidity()) {
+      const object = {};
+      const data = new FormData(form);
+      data.forEach((value, key) => object[key] = value);
+      const json = JSON.stringify(object);
+      const res = await fetch(props.url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: json
+      });
+      if(res.status === 200) {
+        props.setUser(await res.json());
+        navigate("/user/id");
+      }
     }
-
-    setValidated(true);
   };
 
   return (
@@ -33,7 +48,7 @@ function LogIn() {
                   controlId="validationCustom01"
                 >
                   <Form.Label>Username</Form.Label>
-                  <Form.Control required type="text" placeholder="Username" />
+                  <Form.Control required type="text" placeholder="Username" name="username" />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
 
@@ -46,6 +61,7 @@ function LogIn() {
                     required
                     type="password"
                     placeholder="Password"
+                    name="password"
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>

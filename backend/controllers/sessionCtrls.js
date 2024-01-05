@@ -5,15 +5,16 @@ const makeSession = (req, res) => {
     db.User.findOne({ username: req.body.username }, (err, foundUser) => {
         if (err) {
             console.log(err);
-            res.send(500, err);
+            res.status(500).send(err);
         } else if (!foundUser) {
-            res.send(404);
+            res.status(404).send("Could not find");
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
                 req.session.currentUser = foundUser;
-                res.send(200);
+                console.log("POST", req.session);
+                res.status(200).send(foundUser);
             } else {
-                res.send(401, "Password does not match");
+                res.status(401, "Password does not match");
             }
         }
     });

@@ -43,8 +43,9 @@ function Main(props) {
   const [project, setProject] = useState(null);
   const URL = "http://localhost:4000/project/";
 
-  const [user, setUser] = useState(null);
   const URL2 = "http://localhost:4000/user/";
+
+  const URL3 = "http://localhost:4000/session/";
 
   //PROJECT
   //FUNCTION FOR GETTING PROJECTS
@@ -152,7 +153,7 @@ function Main(props) {
   return (
     <main>
       <Routes>
-        {/*<Route path="/login" element={<LogIn profile={mockProfileData} />} />*/}
+        {<Route path="/login" element={<LogIn url={URL3} setUser={props.setUser}/>} />}
         <Route path="/" element={<Index project={project} />} />
         <Route
           path="/project/new"
@@ -176,9 +177,10 @@ function Main(props) {
           path="/user/id"
           element={
             <ShowProfile
-              user={user}
+              user={props.user}
               updateUser={updateUser}
               deleteUser={deleteUser}
+              url={URL2}
             />
           }
         />

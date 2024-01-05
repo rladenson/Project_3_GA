@@ -6,12 +6,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
-function Header() {
+function Header(props) {
+
   return (
     <>
     <Navbar expand="lg" bg="dark" data-bs-theme="dark">
       <Container fluid>
         <Navbar.Brand href="#">devPort</Navbar.Brand>
+        {props.user ? <Navbar.Brand href="#">Hello {props.user.name}</Navbar.Brand> : null}
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

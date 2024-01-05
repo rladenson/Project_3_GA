@@ -3,6 +3,16 @@ const bcrypt = require("bcrypt");
 
 // TODO ROUTE FUNCTIONS (NOT ACTIONS) GO HERE
 
+const getSelf = async (req, res) => {
+    console.log(req.session)
+    if(req.session.currentUser) {
+        req.body = req.session.currentUser;
+        return await getUser(req, res);
+    } else {
+        res.status(404).send();
+    }
+};
+
 const getUser = async (req, res) => {
     let user = await db.User.findOne({ username: req.params.username });
     user = user._doc;
@@ -31,7 +41,7 @@ const createUser = (req, res) => {
             res.status(400);
         } else {
             console.log("user is created", createdUser);
-            res.status(200).send(createUser);
+            res.status(200).send(createdUser);
         }
     });
 };
@@ -70,6 +80,7 @@ const deleteUser = (req, res) => {
 module.exports = {
     // TODO ROUTE NAMES GO HERE
     getUser,
+    getSelf,
     createUser,
     updateUser,
     deleteUser,
