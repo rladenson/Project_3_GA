@@ -9,15 +9,15 @@ A full CRUD app designed to provide community and a showplace for software devel
 Combining the reach of social media and the power of online networking, we have designed an app that creates a place for software engineers to display their portfolios. Each profile contains a representational image for the portfolio projects, links to the live project, as well as a link to the developer’s GitHub.
 
 ## Table of Contents
-*[Technologies Used] (#technologiesused)
-*[Features](#features)
-*[Design](#design)
-*[Project Next Steps](#nextsteps)
-*[Deployed App](#deployment)
-*[About the Author](#author)
+* [Technologies Used] (#technologiesused)
+* [Features](#features)
+* [Design](#design)
+* [Project Next Steps](#nextsteps)
+* [Deployed App](#deployment)
+* [About the Author](#author)
 
-##<a name="technologiesused"></a>Technologies Used
-* Front-End
+## <a name="technologiesused"></a>Technologies Used
+FRONT-END
 * React
 * Bootstrap
 * CSS
@@ -25,7 +25,7 @@ Combining the reach of social media and the power of online networking, we have 
 * Fetch
 * Axios
 
-* Backend
+BACK END
 * Mongoose
 * Express-Session
 * Express
@@ -43,10 +43,10 @@ Combining the reach of social media and the power of online networking, we have 
 
 ## Design
 * Wireframe images
-<img src="SocDev1.png">
-<img src="SocDev2.png">
-<img src="SocDev3.png">
-<img src="SocDev4.png">
+<img src="SocDevWireframes/SocDev1.png">
+<img src="SocDevWireframes/SocDev2.png">
+<img src="SocDevWireframes/SocDev3.png">
+<img src="SocDevWireframes/SocDev4.png">
 
 ## Next Steps
 * The ability to reach out and connect with other users
