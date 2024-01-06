@@ -1,14 +1,14 @@
-import { useState } from "react";
-import {useParams, useNavigate} from "react-router-dom"
-//It (ueParams) retrieves the value of parameters specified in the root URL.
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
-import Card from "react-bootstrap/Card";
-import Banner from "../components/Banner";
+// import { useState } from "react";
+// import {useParams, useNavigate} from "react-router-dom"
+// //It (ueParams) retrieves the value of parameters specified in the root URL.
+// import React from "react";
+// import Container from "react-bootstrap/Container";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
+// import Button from "react-bootstrap/Button";
+// import Image from "react-bootstrap/Image";
+// import Card from "react-bootstrap/Card";
+// import Banner from "../components/Banner";
 
 
 // const profileData = [

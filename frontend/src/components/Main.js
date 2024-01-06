@@ -1,3 +1,24 @@
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+
+function Main() {
+  return(
+    <>
+    <Header/>
+    <Outlet/>
+    <Footer/>
+    </>
+  )
+}
+
+export default Main;
+
+
+
+
+
 // import { useEffect, useState } from "react";
 // import React from "react";
 // import { Route, Routes } from "react-router-dom";
@@ -193,21 +214,21 @@
 
 // export default Main;
 
-import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import Home from "../pages/Home";
-import Index from "../pages/Index";
-import ShowProfile from "../pages/ShowProfile";
-import ShowProject from "../pages/ShowProject";
-import NewProfile from "../pages/NewProfile";
-import SignUp from "../pages/SignUp";
-import LogIn from "../pages/LogIn";
-import NewProject from "../pages/NewProject";
-import { AuthProvider } from './AuthContext'; // Import the AuthProvider
+// import React, { useEffect, useState } from "react";
+// import { Route, Routes } from "react-router-dom";
+// import Home from "../pages/Home";
+// import Index from "../pages/Index";
+// import ShowProfile from "../pages/ShowProfile";
+// import ShowProject from "../pages/ShowProject";
+// import NewProfile from "../pages/NewProfile";
+// import SignUp from "../pages/SignUp";
+// import LogIn from "../pages/LogIn";
+// import NewProject from "../pages/NewProject";
+// import { AuthProvider } from './AuthContext'; // Import the AuthProvider
 
-function Main(props) {
-  const [project, setProject] = useState(null);
-  const URL = "http://localhost:4000/project/";
+// function Main(props) {
+//   const [project, setProject] = useState(null);
+//   const URL = "http://localhost:4000/project/";
 
   //PROJECT
   //FUNCTION FOR GETTING PROJECTS
@@ -253,32 +274,32 @@ function Main(props) {
   //   getProjects();
   // }, []);
 
-  return (
-    <AuthProvider> {/* Wrap your main component with AuthProvider */}
-      <main>
-        <Routes>
-          <Route path="/" element={<Index project={project} />} />
-          <Route
-            path="/project/:id"
-            element={
-              <ShowProject
-                project={project}
-                // updateProject={updateProject}
-                // deleteProject={deleteProject}
-              />
-            }
-          />
-          <Route
-            path="/project/new"
-            // element={<NewProject createProject={createProject} />}
-          />
-          {/* <Route path="/user/:id" element={<ShowProfile />} /> */}
-          {/* <Route path="/user/new" element={<NewProfile />} /> */}
-          <Route path="/login" element={<LogIn />} />
-        </Routes>
-      </main>
-    </AuthProvider>
-  );
-}
+//   return (
+//     <AuthProvider> {/* Wrap your main component with AuthProvider */}
+//       <main>
+//         <Routes>
+//           <Route path="/" element={<Index project={project} />} />
+//           <Route
+//             path="/project/:id"
+//             element={
+//               <ShowProject
+//                 project={project}
+//                 // updateProject={updateProject}
+//                 // deleteProject={deleteProject}
+//               />
+//             }
+//           />
+//           <Route
+//             path="/project/new"
+//             // element={<NewProject createProject={createProject} />}
+//           />
+//           {/* <Route path="/user/:id" element={<ShowProfile />} /> */}
+//           {/* <Route path="/user/new" element={<NewProfile />} /> */}
+//           <Route path="/login" element={<LogIn />} />
+//         </Routes>
+//       </main>
+//     </AuthProvider>
+//   );
+// }
 
-export default Main;
+// export default Main;

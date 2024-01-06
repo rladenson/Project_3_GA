@@ -19,7 +19,6 @@ function LogIn() {
 
     setValidated(true);
   };
-
   return (
     <Container className="d-flex justify-content-center">
       <Row style={{ width: "25rem" }}>
@@ -28,6 +27,15 @@ function LogIn() {
             <Card.Body>
               <Card.Title>Log In</Card.Title>
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
+              <Form.Group
+                  className="mb-3 text-start"
+                  controlId="validationCustom0"
+                >
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control required type="email" placeholder="Email Address" />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+
                 <Form.Group
                   className="mb-3 text-start"
                   controlId="validationCustom01"

@@ -29,6 +29,15 @@ function SignUp() {
             <Card.Body>
               <Card.Title>Register A New User</Card.Title>
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
+              <Form.Group
+                  className="mb-3 text-start"
+                  controlId="validationCustom0"
+                >
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control required type="email" placeholder="Email Address" />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+                
                 <Form.Group className="mb-3 text-start" controlId="validationCustom01">
                   <Form.Label>Username</Form.Label>
                   <Form.Control required type="text" placeholder="Username" />

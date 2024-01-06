@@ -19,11 +19,11 @@ function Header() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Projects</Nav.Link>
+            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/project">Projects</Nav.Link>
             <NavDropdown title="Profile" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">View Profile</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
+              <NavDropdown.Item href="#/profile">View Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/editProfile">
                 Edit Profile
               </NavDropdown.Item>
             </NavDropdown>
@@ -38,8 +38,8 @@ function Header() {
             <Button variant="outline-light"><i class="bi bi-search"></i></Button>
           </Form>
           <Nav>
-          <Nav.Link href="#action1">Sign Up</Nav.Link>
-          <Nav.Link href="#action2">Log In</Nav.Link>
+          <Nav.Link href="/signup">Sign Up</Nav.Link>
+          <Nav.Link type="submit" href="#action2">Log Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
