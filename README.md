@@ -24,6 +24,7 @@ FRONT-END
 * HTML
 * Fetch
 * Axios
+* Redux
 
 BACK END
 * Mongoose
