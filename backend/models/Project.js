@@ -13,7 +13,7 @@ const projectSchema = new mongoose.Schema({
     tags: {type: [String]}
 }, {timestamps:true})
 
-const Project = mongoose.model("Project", projectSchemaSchema);
+const Project = mongoose.model("Project", projectSchema);
 
 module.exports = Project;
 
