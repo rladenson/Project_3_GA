@@ -7,6 +7,7 @@ const app = express();
 const cors = require("cors");
 // const routes = require("./routes/index");
 const db = mongoose.connection; //default connection object
+const authRouter = require('./routes/authRoutes')
 
 // ENV VARIABLES
 const mongoURI = process.env.MONGOURI;
@@ -16,8 +17,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//call the routes here
 
-// app.use("/", routes);
+app.use("/api", authRouter);
 
 app.listen(PORT, () => console.log(`listening on PORT: ${PORT}`));
 
