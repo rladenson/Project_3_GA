@@ -113,17 +113,17 @@
 //               <Card.Title className="d-md-flex justify-content-between">
 //                 <div>Project Name</div>
 //                 <small>
-//                   <a style={{ textDecoration: "none" }} href="/" class="icon">
-//                     <i class="bi bi-github"> GitHub Repository</i>
+//                   <a style={{ textDecoration: "none" }} href="/" className="icon">
+//                     <i className="bi bi-github"> GitHub Repository</i>
 //                   </a>{" "}
-//                   <a style={{ textDecoration: "none" }} href="/" class="icon">
-//                     <i class="bi bi-browser-chrome"> Deployed Project</i>
+//                   <a style={{ textDecoration: "none" }} href="/" className="icon">
+//                     <i className="bi bi-browser-chrome"> Deployed Project</i>
 //                   </a>
 //                 </small>
 //               </Card.Title>
 //               <div className="d-flex flex-wrap mt-3">
 //                 <p className="me-3">
-//                   <i class="bi bi-check-circle"></i> React
+//                   <i className="bi bi-check-circle"></i> React
 //                 </p>
 //                 <p className="me-3">
 //                   <i className="bi bi-check-circle"></i> Javascript
