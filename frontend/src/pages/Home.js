@@ -1,9 +1,63 @@
-import React from "react";
+import React, { useEffect } from 'react'
+// import { useDispatch,useSelector } from 'react-redux'
+// import { getProjects } from '../../Redux/Post/PostAction'
+// import { getUserfromLocalStorage } from '../../Utils/Utils'
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Banner from '../components/Banner';
+
+const projectData = [
+    {
+      id: 1,
+      title: "Project 1",
+      description: "Description for Project 1",
+      image: "https://example.com/project1.jpg",
+    },
+    {
+      id: 2,
+      title: "Project 2",
+      description: "Description for Project 2",
+      image: "https://example.com/project2.jpg",
+    },
+    {
+      id: 3,
+      title: "Project 3",
+      description: "Description for Project 3",
+      image: "https://example.com/project3.jpg",
+    },
+    // Add more projects as needed
+  ];
 
 function Home() {
     return(
-        <div>
-        </div>
+        <>
+        <Banner/>
+              <div className="mt-3 py-5 bg-body-tertiary">
+        <Row xs={1} md={3} className="g-3 mx-auto">
+          {projectData.map((project) => (
+            <Col key={project.id}>
+              <Card className="shadow-sm h-100">
+                <Card.Img variant="top img-fit" src={project.image} />
+                <Card.Body className="text-start">
+                  <Card.Title>{project.title}</Card.Title>
+                  <Card.Text>{project.description}</Card.Text>
+                  <div className="text-end">
+                    <a
+                      href={`/projects/${project.id}`}
+                      className="btn btn-outline-primary"
+                    >
+                      {" "}
+                      View Details{" "}
+                    </a>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </div>
+      </>
     )
 }
 

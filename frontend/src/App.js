@@ -9,6 +9,7 @@ import Main from './components/Main';
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import Home from './pages/Home';
+import NewProject from './pages/NewProject';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
         <Route element={<Main/>}>
         <Route path="/home" element={<Home/>}/>
+        <Route path="/createProject" element={<NewProject/>}/>
         </Route>
       </Routes>
     </div>
