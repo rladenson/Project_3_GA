@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-// import { createProject } from '../Redux/Project/ProjectAction'
+import { createProject } from '../Redux/Project/ProjectAction'
 import  {useDispatch, useSelector} from 'react-redux'
 import { toast, ToastContainer } from 'react-toastify'
 
@@ -20,8 +20,8 @@ function NewProject(props) {
     const [repolink, setRepolink] = useState("")
     const [deployedlink, setDeployedlink] = useState("")
 
-    const postState = useSelector((state)=>state.post)
-    const {isError,isPostSuccess,message} = postState
+    const projectState = useSelector((state)=>state.project)
+    const {isError,isProjectSuccess,message} = projectState
     // console.log(postState);
 
     const projectData=async()=>{
@@ -51,6 +51,10 @@ function NewProject(props) {
                 setName('')
                 setDescription('')
                 setImage('')
+                setTechused('')
+                setTags('')
+                setRepolink('')
+                setDeployedlink('')
                 toast.success(message)
             }
         })
@@ -64,6 +68,7 @@ function NewProject(props) {
     <Container className="d-flex justify-content-center mt-5 mb-5">
       <Row>
         <Col>
+        <ToastContainer/>
           <h1>New Project</h1>
           <Form onSubmit="">
             <Form.Group
