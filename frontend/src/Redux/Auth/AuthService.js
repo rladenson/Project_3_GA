@@ -16,19 +16,19 @@ const login =async(user)=>{
     }
     return response.data
 }
-const resetnewPassword =async(email)=>{
-    const response = await axios.post(`${baseUrl}/reset-passsword`,{email});
-    return response.data
-}
-const newPassword =async(tokenData)=>{
-    const response = await axios.post(`${baseUrl}/new-password`,{password:tokenData.password, token:tokenData.token});
-    return response.data
-}
+// const resetnewPassword =async(email)=>{
+//     const response = await axios.post(`${baseUrl}/reset-passsword`,{email});
+//     return response.data
+// }
+// const newPassword =async(tokenData)=>{
+//     const response = await axios.post(`${baseUrl}/new-password`,{password:tokenData.password, token:tokenData.token});
+//     return response.data
+// }
 
 
 export const AuthService = {
     register,
     login,
-    resetnewPassword,
-    newPassword
+    // resetnewPassword,
+    // newPassword
 }
