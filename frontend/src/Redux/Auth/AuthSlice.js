@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { getUserfromLocalStorage } from "../../Utils/Utils"
-import { login, newPassword, register, resetnewPassword } from "./AuthAction"
+import { login, register } from "./AuthAction"
 
 
 const initialState={
@@ -8,8 +8,8 @@ const initialState={
     isError: false,
     isRegisterSuccess:false,
     message:'',
-    // isLoginSuccess:false,
-    // user:getUserfromLocalStorage,
+    isLoginSuccess:false,
+    user:getUserfromLocalStorage
     // isNewPasswordSuccess:false,
     // isPasswordSuccess:false,
 }
