@@ -59,3 +59,7 @@ section {
   height: 150px;
   object-fit: cover; /* This property ensures the image covers the entire container while maintaining aspect ratio */
 }
+
+.row {
+  max-width: 100vw;
+}
