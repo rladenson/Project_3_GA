@@ -1,14 +1,12 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import  {useDispatch, useSelector} from 'react-redux'
 import * as yup from 'yup'
 import {useFormik} from 'formik'
-import { register } from '../../Redux/Auth/AuthAction'
+import { register } from '../Redux/Auth/AuthAction'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react'
-import { useState } from "react";
-import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -64,7 +62,7 @@ function SignUp() {
           navigate("/")// to login
       }
       else{
-          navigate("/register")
+          navigate("/signup")
       }
   },[navigate,isRegisterSuccess])
 
@@ -76,6 +74,7 @@ function SignUp() {
           <Card.Img variant="top img-fit" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
             <Card.Body>
               <Card.Title>Register A New User</Card.Title>
+              <ToastContainer/>
               <Form onSubmit={formik.handleSubmit}>
               <Form.Group
                   className="mb-3 text-start"

@@ -36,14 +36,14 @@ function LogIn() {
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
 
-                <Form.Group
+                {/* <Form.Group
                   className="mb-3 text-start"
                   controlId="validationCustom01"
                 >
                   <Form.Label>Username</Form.Label>
                   <Form.Control required type="text" placeholder="Username" />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                </Form.Group>
+                </Form.Group> */}
 
                 <Form.Group
                   className="mb-3 text-start"
