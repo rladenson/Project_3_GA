@@ -1,5 +1,5 @@
-module.exports = {
-    userCtrl: require("./userCtrls"),
-    projectCtrl: require("./projectCtrls"),
-    sessionCtrl: require("./sessionCtrls"),
-};
+// module.exports = {
+//     userCtrl: require("./userCtrls"),
+//     projectCtrl: require("./projectCtrls"),
+//     sessionCtrl: require("./sessionCtrls"),
+// };

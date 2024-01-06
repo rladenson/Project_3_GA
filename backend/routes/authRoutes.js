@@ -1,11 +1,17 @@
-const authRouter = require("express").Router();
+const express = require('express')
+const { register, login,refreshToken, resetPassword, newPassword } = require('../../controllers/authCtrls')//import register
+const authRouter = express.Router()
 
-authRouter.post('/signup', (req, res) => {})
-authRouter.post('/signin', (req, res) => {})
-authRouter.post('/refresh_token', (req, res) => {})
-authRouter.post('/logout', (req, res) => {})
 
-module.exports = authRouter;
+authRouter.post('/signup',register)
+authRouter.post('/signin',login)
+authRouter.post('/reset-passsword',resetPassword)
+authRouter.post('/new-password',newPassword)
+
+authRouter.post('/refresh_token',refreshToken)
+
+
+module.exports = authRouter
 // const router = require("express").Router();
 // const { sessionCtrl } = require("../controllers");
 

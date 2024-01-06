@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //call the routes here
-
+//CHECK API
 app.use("/api", authRouter);
 
 app.listen(PORT, () => console.log(`listening on PORT: ${PORT}`));
