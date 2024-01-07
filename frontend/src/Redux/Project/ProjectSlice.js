@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { createProject, deleteProject, getProjects} from "./ProjectAction";
+import { createProject, getProjects} from "./ProjectAction";
 // import { DeleteData, EditData } from "./PostFunction";
 
 
@@ -42,7 +42,7 @@ export const projectSlice = createSlice({
             state.isLoading = false;
             state.isError=false;
             state.isProjectSuccess=true;
-            state.projects = action.payload.posts
+            state.projects = action.payload.projects
             state.message= "Success"
        })
         .addCase(getProjects.rejected,(state,action)=>{

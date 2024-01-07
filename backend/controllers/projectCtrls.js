@@ -2,19 +2,23 @@ const Project = require("../models/Project")
 
 
 exports.createProject = async(req,res)=>{
-    const {name,description,pic} = req.body
+    const {name,description,pic,repolink,deployedlink,techused,tags} = req.body
     if(!name|| !description || !pic){
         return res.status(400).json({msg:"Please add all fields"})
     }
 
     req.user.password = undefined
-    const post = new Post({
+    const project = new Project({
         name,
         description,
         image:pic,
+        repolink,
+        deployedlink,
+        techused,
+        tags,
         createdBy:req.user
     })
-    post.save()
+    project.save()
     .then(result=>{
         res.json({result,msg:"Created project successfully"})
     })
@@ -29,8 +33,8 @@ exports.getAllProjects =async(req,res)=>{
     .populate("createdBy","_id name")
     // .populate("createdBy","_id name pic")
     .sort("-createdAt")
-    .then((posts)=>{
-        res.status(200).json({project})
+    .then((projects)=>{
+        res.status(200).json({projects})
     })
     .catch(err=>{
         res.status(500).json({msg:err.message})

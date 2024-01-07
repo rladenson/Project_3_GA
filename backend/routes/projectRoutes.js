@@ -2,7 +2,7 @@ const projectRouter = require("express").Router();
 const { createProject, getAllProjects, deleteProject, explore } = require('../controllers/projectCtrls')
 const requireLogin = require('../middleware/requireLogin')
 
-projectRouter.post("/createproject",requireLogin,createProject)
+projectRouter.post("/createproject",requireLogin, createProject)
 projectRouter.get("/allproject",requireLogin,getAllProjects)
 
 

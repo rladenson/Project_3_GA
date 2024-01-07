@@ -7,7 +7,9 @@ const userSchema = new mongoose.Schema({
     name:{ type: String, required: true },
     email:{ type: String, required: true },
     password:{ type: String, required: true },
-    picture:{ type: String },
+    picture:{ type: String,
+    default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS650EKUB1QnT3gBSusaW5KRZTJMrCjY4-AeQ&usqp=CAU"
+    },
     title: { type: String },
     followers:[{ type:ObjectId, ref:"User" }],
     following:[{ type:ObjectId, ref:"User" }],

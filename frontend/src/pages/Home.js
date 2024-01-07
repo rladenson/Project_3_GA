@@ -1,67 +1,136 @@
-import React, { useEffect } from 'react'
-// import { useDispatch,useSelector } from 'react-redux'
-// import { getProjects } from '../../Redux/Post/PostAction'
-// import { getUserfromLocalStorage } from '../../Utils/Utils'
+// Home.js
+
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProjects } from "../Redux/Project/ProjectAction";
+import { getUserfromLocalStorage } from "../Utils/Utils";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import Banner from '../components/Banner';
-
-const projectData = [
-    {
-      id: 1,
-      title: "Project 1",
-      description: "Description for Project 1",
-      image: "https://example.com/project1.jpg",
-    },
-    {
-      id: 2,
-      title: "Project 2",
-      description: "Description for Project 2",
-      image: "https://example.com/project2.jpg",
-    },
-    {
-      id: 3,
-      title: "Project 3",
-      description: "Description for Project 3",
-      image: "https://example.com/project3.jpg",
-    },
-    // Add more projects as needed
-  ];
+import Banner from "../components/Banner";
+import ProjectCard from "./ProjectCard";
 
 function Home() {
-    return(
-        <>
-        <Banner/>
-              <div className="mt-3 py-5 bg-body-tertiary">
-        <Row xs={1} md={3} className="g-3 mx-auto">
-          {projectData.map((project) => (
-            <Col key={project.id}>
-              <Card className="shadow-sm h-100">
-                <Card.Img variant="top img-fit" src={project.image} />
-                <Card.Body className="text-start">
-                  <Card.Title>{project.title}</Card.Title>
-                  <Card.Text>{project.description}</Card.Text>
-                  <div className="text-end">
-                    <a
-                      href={`/projects/${project.id}`}
-                      className="btn btn-outline-primary"
-                    >
-                      {" "}
-                      View Details{" "}
-                    </a>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+  const dispatch = useDispatch();
+
+  const projectState = useSelector((state) => state.project);
+  const { projects, isError, isProjectSuccess, message } = projectState;
+  const currentUser = getUserfromLocalStorage;
+
+  useEffect(() => {
+    async function fetchData() {
+      await dispatch(getProjects());
+    }
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      <Banner />
+      <div className="mt-3 py-5 bg-body-tertiary">
+        {projects && projects.length > 0 ? (
+          <Row xs={1} md={3} className="g-3 mx-auto">
+            {projects.map((project, index) => (
+              <Col key={index}>
+                <ProjectCard project={project} />
+              </Col>
+            ))}
+          </Row>
+        ) : (
+          <h2>Loading</h2>
+        )}
       </div>
-      </>
-    )
+    </>
+  );
 }
 
 export default Home;
+
+
+
+
+// import React, { useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { getProjects } from "../Redux/Project/ProjectAction";
+// import { getUserfromLocalStorage } from "../Utils/Utils";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
+// import Card from "react-bootstrap/Card";
+// import Banner from "../components/Banner";
+
+// // const projectData = [
+// //   {
+// //     id: 1,
+// //     title: "Project 1",
+// //     description: "Description for Project 1",
+// //     image: "https://example.com/project1.jpg",
+// //   },
+// //   {
+// //     id: 2,
+// //     title: "Project 2",
+// //     description: "Description for Project 2",
+// //     image: "https://example.com/project2.jpg",
+// //   },
+// //   {
+// //     id: 3,
+// //     title: "Project 3",
+// //     description: "Description for Project 3",
+// //     image: "https://example.com/project3.jpg",
+// //   },
+// //   // Add more projects as needed
+// // ];
+
+// function Home() {
+//   const dispatch = useDispatch();
+
+//   const projectState = useSelector((state) => state.project);
+//   const { projects, isError, isProjectSuccess, message } = projectState;
+//   console.log(projectState);
+
+//   const currentUser = getUserfromLocalStorage;
+
+//   useEffect(() => {
+//     async function fetchData() {
+//       await dispatch(getProjects());
+//     }
+//     fetchData();
+//   }, []);
+
+//   return (
+//     <>
+//       <Banner />
+//       <div className="mt-3 py-5 bg-body-tertiary">
+//         {projects && projects.length > 0 ? (
+//           <Row xs={1} md={3} className="g-3 mx-auto">
+//             projects.map((project, index) => (
+//               <Col key={index}>
+//                 <Card className="shadow-sm h-100">
+//                   <Card.Img variant="top img-fit" src={project.image} />
+//                   <Card.Body className="text-start">
+//                     <Card.Title>{project.name}</Card.Title>
+//                     <Card.Text>{project.description}</Card.Text>
+//                     <div className="text-end">
+//                       <a
+//                         href='#'
+//                         className="btn btn-outline-primary"
+//                       >
+//                         {" "}
+//                         View Details{" "}
+//                       </a>
+//                     </div>
+//                   </Card.Body>
+//                 </Card>
+//               </Col>
+//             ))
+//           </Row>
+//         ) : (
+//           <h2>Loading</h2>
+//         )}
+//       </div>
+//     </>
+//   );
+// }
+
+// export default Home;
 
 // import React from "react";
 // import Container from "react-bootstrap/Container";
@@ -79,7 +148,7 @@ export default Home;
 //   const homeArr = home.map(function (Home, index) {
 //     return (
 //       <Col md={3} key={index}>
-//         <div className="Card row row-cols-1 row-cols-md-3 g-4 width 18em"> 
+//         <div className="Card row row-cols-1 row-cols-md-3 g-4 width 18em">
 //         <div className="holder">
 //           <Card className="mb-3" style={{width: '18em'}}>
 //             <Card.Img variant="top" src={Home.image} />
@@ -94,7 +163,7 @@ export default Home;
 //         </div>
 //       </Col>
 //     )
-   
+
 //   });
 //   return (
 //     <section id="homepage" className="block home-block">
@@ -107,9 +176,8 @@ export default Home;
 //         </Row>
 //       </Container>
 //     </section>
-    
+
 //   );
 // }
 
 // export default Home;
-

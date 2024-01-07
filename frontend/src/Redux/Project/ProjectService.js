@@ -8,6 +8,7 @@ const createProject = async(projectdata)=>{
         techused:projectdata.techused,
         repolink:projectdata.repolink,
         deployedlink:projectdata.deployedlink,
+        tags:projectdata.tags,
         pic:projectdata.pic
     },config)
     // console.log(response);
