@@ -9,6 +9,7 @@ const cors = require("cors");
 const db = mongoose.connection; //default connection object
 const authRouter = require('./routes/authRoutes')
 const projectRouter = require('./routes/projectRoutes')
+const userRouter = require('./routes/userRoutes')
 
 
 // ENV VARIABLES
@@ -23,6 +24,7 @@ app.use(express.json());
 //CHECK API
 app.use("/api", authRouter);
 app.use("/api", projectRouter);
+app.use("/api", userRouter);
 
 app.listen(PORT, () => console.log(`listening on PORT: ${PORT}`));
 
