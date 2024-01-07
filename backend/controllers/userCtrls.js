@@ -14,10 +14,10 @@ module.exports.logout = async (req, res) => {
 }
 
 module.exports.getMyProjects = async (req, res) => {
-    Post.find({ postedBy: req.user._id })
+    Project.find({ createdBy: req.user._id })
         .populate("createdBy", "_id name")
-        .then(mypost => {
-            res.json({ mypost: mypost })
+        .then(myproject => {
+            res.json({ myproject: myproject })
         })
         .catch(err => {
             res.status(500).json(({ msg: err.message }))

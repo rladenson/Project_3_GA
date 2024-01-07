@@ -1,9 +1,9 @@
 const userRouter = require("express").Router();
-const { logout, getMyPosts, getMySavedPosts, updateProfile, followUser, unfollowUser, getUserDetails, suggestionUser, searchUser, addStory, getStory } = require('../controllers/userCtrls')
+const { logout, getMyProjects, getMySavedPosts, updateProfile, followUser, unfollowUser, getUserDetails, suggestionUser, searchUser, addStory, getStory } = require('../controllers/userCtrls')
 const requireLogin = require('../middleware/requireLogin')
 
 userRouter.get('/logout',requireLogin,logout)
-// userRouter.get('/mypost',requireLogin,getMyPosts)
+userRouter.get('/myproject',requireLogin,getMyProjects)
 // userRouter.get('/mySavedPosts',requireLogin,getMySavedPosts)
 // userRouter.put('/updateProfile',requireLogin,updateProfile)
 // userRouter.put('/follow',requireLogin,followUser)
