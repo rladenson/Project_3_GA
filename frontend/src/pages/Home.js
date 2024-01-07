@@ -1,5 +1,3 @@
-// Home.js
-
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProjects } from "../Redux/Project/ProjectAction";
@@ -44,9 +42,6 @@ function Home() {
 }
 
 export default Home;
-
-
-
 
 // import React, { useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";

@@ -1,17 +1,16 @@
 import {configureStore} from '@reduxjs/toolkit'
 import authReducer from './Auth/AuthSlice'
 import projectReducer from './Project/ProjectSlice'
-// import postReducer from './Post/PostSlice'
-// import userReducer from './User/UserSlice'
-// import profileReducer from './Profile/ProfileSlice'
+import userReducer from './User/UserSlice'
+import profileReducer from './Profile/ProfileSlice'
 // import exploreReducer from './Explore/ExploreSlice'
 
 export const store =configureStore({
     reducer:{
         auth:authReducer,
         project:projectReducer,
-        // user:userReducer,
-        // profile:profileReducer,
+        user:userReducer,
+        profile:profileReducer,
         // explore:exploreReducer
     },
 

@@ -1,19 +1,47 @@
+import React, {useState} from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { useSelector } from "react-redux";
+import { logout } from '../Redux/User/UserAction';
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserfromLocalStorage } from '../Utils/Utils'
 
 function Header() {
-  const authState = useSelector((state) => state.auth);
-  const { user } = authState;
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const [search,setSearch] = useState("")
+  const currentUser = getUserfromLocalStorage
+
+  const userState = useSelector(state => state.user)
+  const { userSearch,isSearchSuccess} = userState
+
+  const [userDetails,setUserDetails] = useState([])
+
+
+
+
+  // const fetchUsers = async(query)=>{
+  //   await setSearch(capitalizeTxt(query))
+  //   await dispatch(searchUser(query))
+  //   if(isSearchSuccess){
+  //     await setUserDetails(userSearch)
+  //   }
+  // } 
+ 
 
   const Logout = () => {
     return (
       <Nav>
-        <Nav.Link type="submit" href="#action2">
+        <Nav.Link type="submit" href="#action2" onClick={async()=>{
+              await dispatch(logout()); 
+              await navigate("/"); 
+              await window.location.reload(true)
+            }}>
           Log Out
         </Nav.Link>
       </Nav>
@@ -54,7 +82,7 @@ function Header() {
               navbarScroll
             >
               <Nav.Link href="/home">Home</Nav.Link>
-              {user ? <AuthedLinks /> : ""}
+              {currentUser ? <AuthedLinks /> : ""}
             </Nav>
             <Form className="d-flex">
               <Form.Control
@@ -67,7 +95,7 @@ function Header() {
                 <i className="bi bi-search"></i>
               </Button>
             </Form>
-            {user ? <Logout /> : <Login />}
+            {currentUser ? <Logout /> : <Login />}
           </Navbar.Collapse>
         </Container>
       </Navbar>
