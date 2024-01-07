@@ -41,7 +41,7 @@ exports.getAllProjects =async(req,res)=>{
     })
 }
 
-exports.deletePost = async(req,res)=>{
+exports.deleteProject = async(req,res)=>{
     await Project.findByIdAndUpdate({_id:req.params.projectId})
     .populate("createdBy","_id")
     .exec((err,project)=>{
