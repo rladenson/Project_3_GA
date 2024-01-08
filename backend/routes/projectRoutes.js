@@ -1,12 +1,11 @@
 const projectRouter = require("express").Router();
 const { createProject, getAllProjects, deleteProject, explore, editProject } = require('../controllers/projectCtrls')
-const requireLogin = require('../middleware/requireLogin')
+const requireLogin = require('../middleware/requireLogin');
+const requireOwned = require("../middleware/requireOwned");
 
 projectRouter.post("/createproject",requireLogin, createProject)
-projectRouter.get("/allproject",requireLogin,getAllProjects)
-projectRouter.get("/editproject",requireLogin,editProject)
+projectRouter.get("/allproject", getAllProjects)
+projectRouter.delete("/deleteproject/:id", requireOwned, deleteProject)
 
-//delete post
-projectRouter.delete("/deleteproject/:projectId",requireLogin,deleteProject)
 
 module.exports = projectRouter

@@ -20,7 +20,7 @@ exports.createProject = async(req,res)=>{
     })
     project.save()
     .then(result=>{
-        res.json({result,msg:"Created project successfully"})
+        res.status(201).json({result,msg:"Created project successfully"})
     })
     .catch(err=>{
         return res.status(500).json({msg:err.message})
@@ -41,6 +41,17 @@ exports.getAllProjects =async(req,res)=>{
     })
 }
 
+exports.deleteProject = async (req, res) => {
+    await Project.findByIdAndDelete(req.params.id, (err) => {
+        if(err) {
+            res.status(500).send(err)
+        } else {
+            res.status(204).send();
+          
+       }
+    })
+}   
+
 exports.editProject = async(req, res)=>{
     await Project.findByIdAndUpdate({_id:req.params.projectId})
     .populate("createdBy","_id")
@@ -56,22 +67,12 @@ exports.editProject = async(req, res)=>{
     })
 }
 
-exports.deleteProject = async(req,res)=>{
-    await Project.findByIdAndUpdate({_id:req.params.projectId})
-    .populate("createdBy","_id")
-    .exec((err,project)=>{
-        if(err) return res.status(400).json({msg:err})
 
-        if(project.createdBy._id.toString() === req.user._id.toString()){
-            project.remove()
-            .then(result=>{
-                res.json({msg:'Deleted project', result})
-            })
-            .catch(err=>{
-                return res.status(500).json({msg:err.message})
-            })
-        }
-    })
-}
+      
+// exports.deletePost = async(req,res)=>{
+//     await Post.findByIdAndUpdate({_id:req.params.postId})
+//     .populate("postedBy","_id")
+//     .exec((err,post)=>{
+//         if(err) return res.status(400).json({msg:err})
 
 
