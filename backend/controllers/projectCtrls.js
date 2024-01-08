@@ -42,7 +42,7 @@ exports.getAllProjects =async(req,res)=>{
 }
 
 exports.deleteProject = async (req, res) => {
-    await Project.findByIdAndDelete(req.params.id, (err) => {
+    Project.findByIdAndDelete(req.params.id, (err) => {
         if(err) {
             res.status(500).send(err)
         } else {

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProjects } from "../Redux/Project/ProjectAction";
+import { getProjects, deleteProject } from "../Redux/Project/ProjectAction";
 import { getUserfromLocalStorage } from "../Utils/Utils";
 import Banner from "../components/Banner";
 import ProjectCard from "./ProjectCard";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,19 +14,32 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
 function ShowProject() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { projectid } = useParams(); // Access the :projectid parameter from the URL
 
   const projectState = useSelector((state) => state.project);
-  const { projects, isError, isProjectSuccess, message } = projectState;
+  const { projects, isLoading, isError, isProjectSuccess, isDeleteSuccess, message } = projectState;
   const currentUser = getUserfromLocalStorage;
 
   useEffect(() => {
     async function fetchData() {
-      await dispatch(getProjects());
+      dispatch(getProjects());
     }
     fetchData();
   }, []);
+
+  const deleteThisProject = async () => {
+    dispatch(deleteProject(projectid));
+  }
+
+  const goHome = () => {
+    setTimeout(() => {
+      navigate("/home");
+    }, 100)
+    return <></>;
+  }
+
   const selectedProject = projects.find((project) => project._id === projectid);
 // console.log(selectedProject)
 if(selectedProject)
@@ -94,13 +107,14 @@ if(selectedProject)
                 <a className="card-link btn btn-info" href={`/project/${projectid}/edit`}>
                   Edit
                 </a>
-                <a className="card-link btn btn-danger" href="/">
+                <button className="card-link btn btn-danger" onClick={deleteThisProject}>
                   Delete
-                </a>
+                </button>
               </div>
             </Card.Body>
           </Card>
         </Col>
+        {isDeleteSuccess && !isLoading ? goHome() : ""}
     </>
   )
   else return <></>

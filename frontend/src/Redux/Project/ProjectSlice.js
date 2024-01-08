@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { createProject, getProjects, updateProject} from "./ProjectAction";
+import { createProject, getProjects, updateProject, deleteProject} from "./ProjectAction";
 // import { DeleteData, EditData } from "./ProjectFunction";
 
   
@@ -9,6 +9,7 @@ const initialState = {
     isError:false,
     isLoading:false,
     isProjectSuccess:true,
+    isDeleteSuccess: false,
     message:""
 }
 
@@ -101,27 +102,27 @@ export const projectSlice = createSlice({
     state.isError = true;
     state.isSuccess = false;
     state.message = 'Failed to update project.';
-  });
+  })
 
         //deletepost
-    //     .addCase(deleteProject.pending,(state)=>{
-    //         state.isLoading=true
-    //     })
-    //     .addCase(deleteProject.fulfilled,(state,action)=>{
-    //         console.log(action);
-    //         state.isLoading = false;
-    //         state.isError=false;
-    //         state.isProjectSuccess=true;
-    //         state.projects = DeleteData(state.projects,action.payload.data.result._id)
-    //         state.message= "Success"
-    //    })
-    //     .addCase(deleteProject.rejected,(state,action)=>{
-    //         console.log("err", action);
-    //         state.isLoading=false;
-    //         state.isError=true;
-    //         state.isProjectSuccess=false;
-    //         state.message='error'
-    //     })
+        .addCase(deleteProject.pending,(state)=>{
+            state.isLoading=true
+        })
+        .addCase(deleteProject.fulfilled,(state,action)=>{
+            console.log(action);
+            state.isLoading = false;
+            state.isError=false;
+            state.isDeleteSuccess=true;
+            // state.projects = DeleteData(state.projects,action.payload.data.result._id)
+            state.message= "Success"
+       })
+        .addCase(deleteProject.rejected,(state,action)=>{
+            console.log("err", action);
+            state.isLoading=false;
+            state.isError=true;
+            state.isDeleteSuccess=false;
+            state.message='error'
+        })
 
     }
 })
