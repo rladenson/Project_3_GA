@@ -41,6 +41,21 @@ exports.getAllProjects =async(req,res)=>{
     })
 }
 
+exports.updateProject = async (req, res) => {
+    const { name, description, repolink, deployedlink, tags, techused} = req.body
+    await Project.findOneAndUpdate({ _id: req.project._id }, {
+    }, { new: true })
+        .exec((err, result) => {
+            if (err) {
+                return res.status(400).json({ msg: err.message })
+            }
+            else {
+                res.json({ msg: "Update Success", result: result })
+            }
+        })
+
+}
+
 exports.deletePost = async(req,res)=>{
     await Project.findByIdAndUpdate({_id:req.params.projectId})
     .populate("createdBy","_id")
