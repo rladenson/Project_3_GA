@@ -13,6 +13,8 @@ import NewProject from "./pages/NewProject";
 import PrivateRoute from "./Utils/PrivateRoute";
 import ShowProfile from "./pages/ShowProfile";
 import UserProfile from "./pages/UserProfile";
+import ShowProject from "./pages/ShowProject";
+import EditProject from "./pages/EditProject";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
             <Route path="/createProject" element={<NewProject />} />
             <Route path="/profile" element={<ShowProfile />} />
             <Route path="/profile/:userid" element={<UserProfile />} />
+            <Route path="/project/:projectid" element={<ShowProject />} />
+            <Route path="/project/:projectid/edit" element={<EditProject />} />
           </Route>
         </Route>
       </Routes>

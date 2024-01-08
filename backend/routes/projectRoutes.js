@@ -4,7 +4,7 @@ const requireLogin = require('../middleware/requireLogin')
 
 projectRouter.post("/createproject",requireLogin, createProject)
 projectRouter.get("/allproject",requireLogin,getAllProjects)
-projectRouter.put('/updateProject',requireLogin,updateProject)
+projectRouter.put('/updateProject/:projectid',updateProject)
 //delete post
 // projectRouter.delete("/deleteproject/:projectId",requireLogin,deleteProject)
 

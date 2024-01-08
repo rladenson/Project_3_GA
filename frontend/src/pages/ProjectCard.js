@@ -1,9 +1,15 @@
 // ProjectCard.js
-
-import React from "react";
+import React, { useState } from 'react'
+import { timeSince } from '../Utils/Utils'
+import { useDispatch } from 'react-redux'
+import { deletePost} from '../Redux/Project/ProjectAction'
+import { Link } from 'react-router-dom'
 import Card from "react-bootstrap/Card";
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, currentUser }) => {
+
+  const dispatch = useDispatch()
+
   return (
     <Card className="shadow-sm h-100">
       <Card.Img variant="top img-fit" src={project.image} />
@@ -11,10 +17,13 @@ const ProjectCard = ({ project }) => {
         <Card.Title>{project.name}</Card.Title>
         <Card.Text>{project.description}</Card.Text>
         <div className="text-end">
-          <a href="#" className="btn btn-outline-primary">
-            {" "}
-            View Details{" "}
-          </a>
+        <Link
+            to={`/project/${project._id}`}
+            className="btn btn-outline-primary"
+          >
+            {' '}
+            View Details{' '}
+          </Link>
         </div>
       </Card.Body>
     </Card>

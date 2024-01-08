@@ -41,20 +41,28 @@ exports.getAllProjects =async(req,res)=>{
     })
 }
 
-exports.updateProject = async (req, res) => {
-    const { name, description, repolink, deployedlink, tags, techused} = req.body
-    await Project.findOneAndUpdate({ _id: req.project._id }, {
-    }, { new: true })
+exports.updateProject = (req, res) => {
+    Project.findOneAndUpdate({ _id: req.params.projectid }, req.body, { new: true })
         .exec((err, result) => {
             if (err) {
-                return res.status(400).json({ msg: err.message })
+                return res.status(400).json({ msg: err.message });
+            } else {
+                res.json({ msg: "Update Success", result: result });
             }
-            else {
-                res.json({ msg: "Update Success", result: result })
-            }
-        })
+        });
+};
 
-}
+
+// exports.updateProject = async(req, res) => {
+//     await Project.findByIdAndUpdate(req.params.id, req.body, {new: true})
+//     .then((updatedPerson) => {
+//         if(!updatedPerson){
+//             res.status(400).json({Message: 'Could not update person'})
+//         } else {
+//             res.status(200).json({Data: updatedPerson, Message: "Person updated"})
+//         }
+//     })
+// }
 
 exports.deletePost = async(req,res)=>{
     await Project.findByIdAndUpdate({_id:req.params.projectId})

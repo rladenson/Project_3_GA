@@ -19,8 +19,10 @@ const updateUserProfile = async(userData)=>{
     return response.data
 }
 
+
 export const profileService = {
     getProfile,
-    updateUserProfile
+    updateUserProfile,
+    
    
 }

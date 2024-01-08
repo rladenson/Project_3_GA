@@ -19,7 +19,27 @@ async(thunkAPI)=>{
     }
 })
 
+//updateProject
+export const updateProject = createAsyncThunk("project/updateProject",
+async(projectData,thunkAPI)=>{
+    try {
+        return ProjectService.updateProject(projectData)
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error)
+    }
+})
 
+// export const updateProject = createAsyncThunk(
+//     'project/updateProject',
+//     async (projectData) => {
+//       try {
+//         const response = await axios.put(`${API_ENDPOINT}/${projectData.id}`, projectData);
+//         return response.data; // Assuming your API returns the updated project data
+//       } catch (error) {
+//         throw Error('Failed to update project.');
+//       }
+//     }
+//   );
 
 
 //deleteProject

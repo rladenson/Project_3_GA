@@ -46,7 +46,7 @@ function ShowProfile(props) {
           <Col md={6} className="ms-auto me-auto">
             <div className="text-center">
               <Image
-                className="img-raised profile-img"
+                className="img-raised profile-img profile-pic"
                 src={currentUser && currentUser.picture}
                 roundedCircle
               />
@@ -55,13 +55,13 @@ function ShowProfile(props) {
                 <h6>{currentUser && currentUser.title}</h6>
                 <p className="mb-4">
                   <Button
-                    variant="primary"
+                    variant="outline-primary"
                     size="sm"
-                    className="px-5"
+                    className="px-5 edit-btn"
                     style={{ borderRadius: "15px" }}
                     onClick={()=>setEditModal(true)}
                   >
-                    Edit Profile
+                   <i class="bi bi-pencil"></i> Edit Profile
                   </Button>
                 </p>
               </div>
