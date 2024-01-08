@@ -47,10 +47,28 @@ exports.deleteProject = async (req, res) => {
             res.status(500).send(err)
         } else {
             res.status(204).send();
+          
+       }
+    })
+}   
+
+exports.editProject = async(req, res)=>{
+    await Project.findByIdAndUpdate({_id:req.params.projectId})
+    .populate("createdBy","_id")
+    .exec((err,project)=>{
+        if(err) return res.status(400).json({msg:err})
+
+        if(project.createdBy._id.toString() === req.user._id.toString()){
+            project.update()
+            .then(result=>{
+                res.json({msg:'Updated project', result})
+            })  
         }
     })
 }
 
+
+      
 // exports.deletePost = async(req,res)=>{
 //     await Post.findByIdAndUpdate({_id:req.params.postId})
 //     .populate("postedBy","_id")
