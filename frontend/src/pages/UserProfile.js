@@ -6,7 +6,6 @@ import {
   getUserDetails,
 } from "../Redux/User/UserAction";
 import { getUserfromLocalStorage } from "../Utils/Utils";
-import { useState } from "react";
 import {useParams, useNavigate} from "react-router-dom"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
