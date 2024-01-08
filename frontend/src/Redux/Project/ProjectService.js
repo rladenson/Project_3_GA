@@ -22,7 +22,7 @@ const getProjects = async()=>{
 }
 const updateProject = async(projectData)=>{
     const response = await axios.put(`${baseUrl}/updateProject/${projectData.id}`,
-    {id:projectData.id,name:projectData.name,description:projectData.description,repolink:projectData.repolink,tags:projectData.tags,techused:projectData.techused,deployedlink:projectData.deployedlink}
+    {_id:projectData.id,name:projectData.name,description:projectData.description,repolink:projectData.repolink,tags:projectData.tags,techused:projectData.techused,deployedlink:projectData.deployedlink}
     ,config)
     // console.log(response);
     // if(response.data){

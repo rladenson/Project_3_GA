@@ -15,8 +15,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 function ShowProject() {
   const dispatch = useDispatch();
-  const { id } = useParams(); // Access the :id parameter from the URL
-
+  const { projectid } = useParams(); // Access the :projectid parameter from the URL
 
   const projectState = useSelector((state) => state.project);
   const { projects, isError, isProjectSuccess, message } = projectState;
@@ -28,8 +27,9 @@ function ShowProject() {
     }
     fetchData();
   }, []);
-  const selectedProject = projects.find((project) => project.id === id);
+  const selectedProject = projects.find((project) => project._id === projectid);
 // console.log(selectedProject)
+if(selectedProject)
   return (
     <>
      <Col md={6}>
@@ -61,7 +61,7 @@ function ShowProject() {
 
             <Card.Body className="text-start">
               <Card.Title className="d-md-flex justify-content-between">
-                <div>Project Name</div>
+                <div>{selectedProject.name}</div>
                 <small>
                   <a style={{ textDecoration: "none" }} href={selectedProject.repolink}className="icon">
                     <i className="bi bi-github"> GitHub Repository</i>
@@ -72,12 +72,13 @@ function ShowProject() {
                 </small>
               </Card.Title>
               <div className="d-flex flex-wrap mt-3">
-                <p className="me-3">
-                  <i className="bi bi-check-circle"></i> React
-                </p>
-                <p className="me-3">
-                  <i className="bi bi-check-circle"></i> Javascript
-                </p>
+                {selectedProject.techused.map((item, i) => {
+                  return (
+                    <p className="me-3" key={i}>
+                      <i className="bi bi-check-circle"></i> {item}
+                    </p>
+                  )
+                })}
               </div>
               <Card.Text>
                 {" "}
@@ -90,7 +91,7 @@ function ShowProject() {
                 <ListGroup.Item>Created by {selectedProject.createdBy.name}</ListGroup.Item>
               </ListGroup>
               <div className="text-end">
-                <a className="card-link btn btn-info" href="/">
+                <a className="card-link btn btn-info" href={`/project/${projectid}/edit`}>
                   Edit
                 </a>
                 <a className="card-link btn btn-danger" href="/">
@@ -101,7 +102,8 @@ function ShowProject() {
           </Card>
         </Col>
     </>
-  );
+  )
+  else return <></>
 }
 
 export default ShowProject;

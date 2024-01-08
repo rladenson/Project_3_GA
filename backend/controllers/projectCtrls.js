@@ -42,6 +42,7 @@ exports.getAllProjects =async(req,res)=>{
 }
 
 exports.updateProject = (req, res) => {
+    console.log(req.body);
     Project.findOneAndUpdate({ _id: req.params.projectid }, req.body, { new: true })
         .exec((err, result) => {
             if (err) {
