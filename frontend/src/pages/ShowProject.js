@@ -12,6 +12,8 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import { Link } from 'react-router-dom'
+
 
 function ShowProject() {
   const navigate = useNavigate();
@@ -45,11 +47,11 @@ function ShowProject() {
 if(selectedProject)
   return (
     <>
-     <Col md={6}>
+     <Col  className="mx-auto my-auto" md={6} style={{maxWidth: "800px"}}>
           <Card className="shadow-sm h-100">
             <Card.Img
               variant="top img-fit"
-              src="https://images.unsplash.com/photo-1685478237496-d4e545f1e317?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={selectedProject.image}
             />
 
 
@@ -101,7 +103,9 @@ if(selectedProject)
                 <ListGroup.Item>
                   Tags: {selectedProject.tags}
                 </ListGroup.Item>
-                <ListGroup.Item>Created by {selectedProject.createdBy.name}</ListGroup.Item>
+                <ListGroup.Item>Created by   <Link to={`/profile/${selectedProject.createdBy._id}`}>
+          {selectedProject.createdBy.name}
+        </Link></ListGroup.Item>
               </ListGroup>
               <div className="text-end">
                 <a className="card-link btn btn-info" href={`/project/${projectid}/edit`}>

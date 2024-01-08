@@ -57,7 +57,7 @@ function UserProfile() {
               <Col md={6} className="ms-auto me-auto">
                 <div className="text-center">
                   <Image
-                    className="img-raised profile-img"
+                    className="img-raised profile-img profile-pic"
                     src={userProfile.user.picture}
                     roundedCircle
                   />

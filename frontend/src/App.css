@@ -6,7 +6,7 @@
 }
 
 .main {
-  background: #FFF;
+  background: #fff;
   position: relative;
   z-index: 3;
 }
@@ -14,7 +14,8 @@
 .main-raised {
   margin: -15px 30px 20px;
   border-radius: 6px;
-  box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 section {
@@ -26,15 +27,16 @@ section {
 
 .profile-img {
   max-width: 160px;
-  -webkit-transform: translate3d(0,-50%,0);
-  -moz-transform: translate3d(0,-50%,0);
-  -o-transform: translate3d(0,-50%,0);
-  -ms-transform: translate3d(0,-50%,0);
-  transform: translate3d(0,-50%,0);
+  -webkit-transform: translate3d(0, -50%, 0);
+  -moz-transform: translate3d(0, -50%, 0);
+  -o-transform: translate3d(0, -50%, 0);
+  -ms-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
 }
 
 .img-raised {
-  box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
+  box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24),
+    0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 .description {

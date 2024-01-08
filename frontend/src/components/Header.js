@@ -1,29 +1,26 @@
-import React, {useState} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { logout } from '../Redux/User/UserAction';
-import { useDispatch, useSelector } from 'react-redux'
-import { getUserfromLocalStorage } from '../Utils/Utils'
+import { logout } from "../Redux/User/UserAction";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserfromLocalStorage } from "../Utils/Utils";
 
 function Header() {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const [search,setSearch] = useState("")
-  const currentUser = getUserfromLocalStorage
+  const [search, setSearch] = useState("");
+  const currentUser = getUserfromLocalStorage;
 
-  const userState = useSelector(state => state.user)
-  const { userSearch,isSearchSuccess} = userState
+  const userState = useSelector((state) => state.user);
+  const { userSearch, isSearchSuccess } = userState;
 
-  const [userDetails,setUserDetails] = useState([])
-
-
-
+  const [userDetails, setUserDetails] = useState([]);
 
   // const fetchUsers = async(query)=>{
   //   await setSearch(capitalizeTxt(query))
@@ -31,17 +28,20 @@ function Header() {
   //   if(isSearchSuccess){
   //     await setUserDetails(userSearch)
   //   }
-  // } 
- 
+  // }
 
   const Logout = () => {
     return (
       <Nav>
-        <Nav.Link type="submit" href="#action2" onClick={async()=>{
-              await dispatch(logout()); 
-              await navigate("/"); 
-              await window.location.reload(true)
-            }}>
+        <Nav.Link
+          type="submit"
+          href="#action2"
+          onClick={async () => {
+            await dispatch(logout());
+            await navigate("/");
+            await window.location.reload(true);
+          }}
+        >
           Log Out
         </Nav.Link>
       </Nav>

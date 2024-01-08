@@ -1,14 +1,10 @@
-import { Navigate, Outlet } from "react-router-dom"
-import { getTokenfromLocalStorage, getUserfromLocalStorage } from "./Utils"
+import { Navigate, Outlet } from "react-router-dom";
+import { getTokenfromLocalStorage, getUserfromLocalStorage } from "./Utils";
 
+const PrivateRoute = () => {
+  const isAuthenticated = getUserfromLocalStorage && getTokenfromLocalStorage;
 
-const PrivateRoute =()=>{
+  return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
+};
 
-    const isAuthenticated = getUserfromLocalStorage && getTokenfromLocalStorage
-
-    return (
-        isAuthenticated ? <Outlet/> : <Navigate to="/" />
-    )
-}
-
-export default PrivateRoute
+export default PrivateRoute;

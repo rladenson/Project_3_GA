@@ -1,16 +1,13 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-mongoose.set('strictQuery', false);
+mongoose.set("strictQuery", false);
 const app = express();
-// const connection = require('./models/index')
 const cors = require("cors");
-// const routes = require("./routes/index");
 const db = mongoose.connection; //default connection object
-const authRouter = require('./routes/authRoutes')
-const projectRouter = require('./routes/projectRoutes')
-const userRouter = require('./routes/userRoutes')
-
+const authRouter = require("./routes/authRoutes");
+const projectRouter = require("./routes/projectRoutes");
+const userRouter = require("./routes/userRoutes");
 
 // ENV VARIABLES
 const mongoURI = process.env.MONGOURI;
@@ -21,14 +18,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //call the routes here
-//CHECK API
 app.use("/api", authRouter);
 app.use("/api", projectRouter);
 app.use("/api", userRouter);
 
 app.listen(PORT, () => console.log(`listening on PORT: ${PORT}`));
-
-
 
 //CONNECT TO MONGO
 mongoose.connect(mongoURI);
