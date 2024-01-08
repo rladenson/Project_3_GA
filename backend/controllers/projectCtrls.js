@@ -41,6 +41,21 @@ exports.getAllProjects =async(req,res)=>{
     })
 }
 
+exports.editProject = async(req, res)=>{
+    await Project.findByIdAndUpdate({_id:req.params.projectId})
+    .populate("createdBy","_id")
+    .exec((err,project)=>{
+        if(err) return res.status(400).json({msg:err})
+
+        if(project.createdBy._id.toString() === req.user._id.toString()){
+            project.update()
+            .then(result=>{
+                res.json({msg:'Updated project', result})
+            })  
+        }
+    })
+}
+
 exports.deleteProject = async(req,res)=>{
     await Project.findByIdAndUpdate({_id:req.params.projectId})
     .populate("createdBy","_id")
