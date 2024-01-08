@@ -20,7 +20,16 @@ const getProjects = async()=>{
     // console.log(response);
     return response.data
 }
-
+const updateProject = async(projectData)=>{
+    const response = await axios.put(`${baseUrl}/editProject/${projectData.id}`,
+    {_id:projectData.id,name:projectData.name,description:projectData.description,repolink:projectData.repolink,tags:projectData.tags,techused:projectData.techused,deployedlink:projectData.deployedlink}
+    ,config)
+    // console.log(response);
+    // if(response.data){
+    //     localStorage.setItem("project",JSON.stringify(response.data.result))
+    // }
+    return response.data
+}
 
 //deletepost
 const deleteProject = async(postId)=>{
@@ -32,5 +41,6 @@ const deleteProject = async(postId)=>{
 export const ProjectService = {
     createProject,
     getProjects,
-    deleteProject
+    deleteProject,
+    updateProject
 }

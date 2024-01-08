@@ -60,12 +60,8 @@ function Header() {
   const AuthedLinks = () => {
     return (
       <>
-        <Nav.Link href="/project">Projects</Nav.Link>
         <Nav.Link href="/createProject">Add Project</Nav.Link>
-        <NavDropdown title="Profile" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="/profile">View Profile</NavDropdown.Item>
-          <NavDropdown.Item href="/editProfile">Edit Profile</NavDropdown.Item>
-        </NavDropdown>
+        <Nav.Link href="/profile">My Profile</Nav.Link>
       </>
     );
   };
