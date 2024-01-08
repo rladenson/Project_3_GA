@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import {
   getfollowUser,
   getunfollowUser,
   getUserDetails,
 } from "../Redux/User/UserAction";
 import { getUserfromLocalStorage } from "../Utils/Utils";
+import { useState } from "react";
+import {useParams, useNavigate} from "react-router-dom"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,6 +15,7 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Banner from "../components/Banner";
+
 
 function UserProfile() {
   const dispatch = useDispatch();
@@ -168,5 +170,3 @@ function UserProfile() {
 
 
 export default UserProfile;
-
-

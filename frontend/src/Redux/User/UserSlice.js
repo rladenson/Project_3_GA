@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { getfollowUser, getunfollowUser, getUserDetails, logout, searchUser } from "./UserAction";
+import { getfollowUser, getSuggestions, getunfollowUser, getUserDetails, logout, searchUser } from "./UserAction";
 
 
 
@@ -10,7 +10,9 @@ const initialState = {
     isSuccess:false,
     message:"",
     userProfile:[],
+    userSuggestion:[],
     isSearchSuccess: "",
+    isSuggestionSuccess:false,
     userSearch: [],
 }
 export const userSlice = createSlice({
