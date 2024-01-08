@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:4000/api";
+export const baseUrl = "https://socdev-backend-698988e694ea.herokuapp.com/api";
 
 export const getUserfromLocalStorage = localStorage.getItem("user")
   ? JSON.parse(localStorage.getItem("user"))
